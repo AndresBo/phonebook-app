@@ -1,8 +1,10 @@
 const Persons = ({persons}) => {
+    console.log(persons)
     return (
-        <p>hello from persons</p>
+        <ul>
+            {persons.map(person => <li>{person.name}</li>)}
+        </ul>
     )
 }
-
 
 export default Persons
