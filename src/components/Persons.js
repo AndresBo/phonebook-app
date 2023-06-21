@@ -1,8 +1,12 @@
-const Persons = ({persons}) => {
-    //console.log(persons)
+const Persons = ({persons, filterName}) => {
+    console.log('filterName state: ',filterName)
+    const filteredPersons = persons.filter(person => person.name.includes(filterName))
+    console.log('filtered persons: ', filteredPersons)
+    console.log('filtered persons length: ', filteredPersons.length)
+    
     return (
         <ul>
-            {persons.map(person => <li key={person.id}>{person.name}</li>)}
+            {filteredPersons.map(person => <li key={person.id}>{person.name}</li>)}
         </ul>
     )
 }
