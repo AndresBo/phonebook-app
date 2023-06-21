@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import Persons from './components/Persons'
+import { nanoid } from 'nanoid'
 
 const App = () => {
-  const [persons, setPersons] = useState([{ name: 'Arto Hellas' }]) 
+  const [persons, setPersons] = useState([
+    { id:nanoid(), name: 'Arto Hellas' }
+  ]) 
   const [newName, setNewName] = useState('')
 
   const addPerson = (event) => {
@@ -27,7 +30,7 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      <Persons persons={persons} />
+      <Persons key={persons.id} persons={persons} />
     </div>
   )
 }
