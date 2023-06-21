@@ -14,10 +14,17 @@ const App = () => {
 
   const addPerson = (event) => {
     event.preventDefault()
+    // reject duplicate persons
+    const findDuplicate = persons.find(person => person.name === newName)
+    if (findDuplicate) {
+      return alert(`${newName} is already added to phonebook`)
+    }
+
     const personObject = {
       id: nanoid(),
       name: newName
     }
+
     setPersons(persons.concat(personObject))
     setNewName('')
   }
