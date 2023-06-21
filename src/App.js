@@ -46,7 +46,6 @@ const App = () => {
       />
       <h2>Numbers</h2>
       <Persons 
-        key={persons.id} 
         persons={persons} 
       />
     </div>
