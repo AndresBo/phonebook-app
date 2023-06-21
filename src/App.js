@@ -1,21 +1,30 @@
 import { useState } from 'react'
+import { nanoid } from 'nanoid'
 import Persons from './components/Persons'
 import PersonForm from './components/PersonForm'
-import { nanoid } from 'nanoid'
+
 
 const App = () => {
   const [persons, setPersons] = useState([
-    { id:nanoid(), name: 'Arto Hellas' }
+    { id: nanoid(), name: 'Arto Hellas' },
+    { id: nanoid(), name: 'Pablo Picasso' }
   ]) 
   const [newName, setNewName] = useState('')
 
+
   const addPerson = (event) => {
     event.preventDefault()
-    console.log('button clicked', event.target)
+    const personObject = {
+      id: nanoid(),
+      name: newName
+    }
+    setPersons(persons.concat(personObject))
+    setNewName('')
   }
 
+  
   const handleNameChange = (event) => {
-    console.log(event.target.value)
+    //console.log(event.target.value)
     setNewName(event.target.value)
   }
 
@@ -29,7 +38,10 @@ const App = () => {
         handleNameChange={handleNameChange}
       />
       <h2>Numbers</h2>
-      <Persons key={persons.id} persons={persons} />
+      <Persons 
+        key={persons.id} 
+        persons={persons} 
+      />
     </div>
   )
 }
