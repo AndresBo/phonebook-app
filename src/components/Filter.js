@@ -1,3 +1,4 @@
+// component that renders search name bad
 const Filter = ({filterName, handleFilterNameChange} ) => {
     return (
         <div>

@@ -14,37 +14,39 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [filterName, setFilterName] = useState('')
-  const [filteredPersons, setFilteredPersons] = useState([])
-
+  
+  // add new person object to persons state:
   const addPerson = (event) => {
     event.preventDefault()
-    // reject duplicate names
+    // check and reject for duplicate names
     const findDuplicate = persons.find(person => person.name === newName)
     if (findDuplicate) {
       return alert(`${newName} is already added to phonebook`)
     }
-
+    // define the new person object
     const personObject = {
       id: nanoid(),
       name: newName,
       number: newNumber
     }
-
+    // add the new person to the persons state using concat to avoid mutating state
     setPersons(persons.concat(personObject))
+    // set state newName to an empty string
     setNewName('')
   }
 
-  
+  // event handler for newName state
   const handleNameChange = (event) => {
     //console.log(event.target.value)
     setNewName(event.target.value)
   }
 
+  // event handler for newNumber state
   const handleNumberChange = (event) => {
     setNewNumber(event.target.value)
   }
   
-
+  // event handler for filterName state
   const handleFilterNameChange = (event) => {
     setFilterName(event.target.value)
   }  

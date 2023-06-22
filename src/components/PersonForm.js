@@ -1,3 +1,4 @@
+// component that renders form for adding a new name and number
 const PersonForm = ({addPerson, newName, handleNameChange, newNumber, handleNumberChange}) => {
     //console.log(persons)
     return (
