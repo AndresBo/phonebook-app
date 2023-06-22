@@ -7,17 +7,18 @@ import Filter from './components/Filter'
 
 const App = () => {
   const [persons, setPersons] = useState([
-    { id: nanoid(), name: 'Arto Hellas' },
-    { id: nanoid(), name: 'Pablo Picasso' },
-    { id: nanoid(), name: 'Ada Lovelace'  }
+    { id: nanoid(), name: 'Arto Hellas', number:'0421243429' },
+    { id: nanoid(), name: 'Pablo Picasso', number:'0421243429' },
+    { id: nanoid(), name: 'Ada Lovelace', number:'0421243429'  }
   ]) 
   const [newName, setNewName] = useState('')
+  const [newNumber, setNewNumber] = useState('')
   const [filterName, setFilterName] = useState('')
   const [filteredPersons, setFilteredPersons] = useState([])
 
   const addPerson = (event) => {
     event.preventDefault()
-    // reject duplicate persons
+    // reject duplicate names
     const findDuplicate = persons.find(person => person.name === newName)
     if (findDuplicate) {
       return alert(`${newName} is already added to phonebook`)
@@ -25,7 +26,8 @@ const App = () => {
 
     const personObject = {
       id: nanoid(),
-      name: newName
+      name: newName,
+      number: newNumber
     }
 
     setPersons(persons.concat(personObject))
@@ -36,6 +38,10 @@ const App = () => {
   const handleNameChange = (event) => {
     //console.log(event.target.value)
     setNewName(event.target.value)
+  }
+
+  const handleNumberChange = (event) => {
+    setNewNumber(event.target.value)
   }
   
 
@@ -55,6 +61,8 @@ const App = () => {
         addPerson={addPerson} 
         newName={newName} 
         handleNameChange={handleNameChange}
+        newNumber={newNumber}
+        handleNumberChange={handleNumberChange}
       />
       <h2>Numbers</h2>
       <Persons 
