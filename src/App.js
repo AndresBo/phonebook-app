@@ -6,11 +6,7 @@ import Filter from './components/Filter'
 
 
 const App = () => {
-  const [persons, setPersons] = useState([
-    { id: nanoid(), name: 'Arto Hellas', number:'0421243429' },
-    { id: nanoid(), name: 'Pablo Picasso', number:'0421243429' },
-    { id: nanoid(), name: 'Ada Lovelace', number:'0421243429'  }
-  ]) 
+  const [persons, setPersons] = useState([]) 
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [filterName, setFilterName] = useState('')

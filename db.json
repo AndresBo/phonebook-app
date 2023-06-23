@@ -1,0 +1,7 @@
+{
+  "persons":[
+    { "id": 1, "name": "Arto Hellas", "number":"0421243429" },
+    { "id": 2, "name": "Pablo Picasso", "number":"0421243429" },
+    { "id": 3, "name": "Ada Lovelace", "number":"0421243429"  }
+  ]
+}
