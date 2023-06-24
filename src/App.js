@@ -42,6 +42,7 @@ const App = () => {
       .then(response => {
         setPersons(persons.concat(response.data))
         setNewName('')
+        setNewNumber('')
       })
   }
 
