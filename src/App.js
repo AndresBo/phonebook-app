@@ -36,11 +36,13 @@ const App = () => {
       name: newName,
       number: newNumber
     }
-    
     // add the new person to the persons state using concat to avoid mutating state
-    setPersons(persons.concat(personObject))
-    // set state newName to an empty string
-    setNewName('')
+    personService
+      .create(personObject)
+      .then(response => {
+        setPersons(persons.concat(response.data))
+        setNewName('')
+      })
   }
 
   // event handler for newName state
