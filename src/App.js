@@ -13,7 +13,7 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('')
   const [filterName, setFilterName] = useState('')
 
-  // useEffect gets data at the first render of the app component:
+  // useEffect gets data at the first render of the app - note empty array as second useEffect argument:
   useEffect(() => {
     personService
       .getAll()
@@ -39,8 +39,8 @@ const App = () => {
     // add the new person to the persons state using concat to avoid mutating state
     personService
       .create(personObject)
-      .then(response => {
-        setPersons(persons.concat(response.data))
+      .then(returnedNote => {
+        setPersons(persons.concat(returnedNote))
         setNewName('')
         setNewNumber('')
       })
