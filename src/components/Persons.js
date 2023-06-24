@@ -1,5 +1,5 @@
 // component that renders list of persons
-const Persons = ({persons, filterName}) => {
+const Persons = ({persons, filterName, deletePerson}) => {
     // filter the array of persons by checking persons names against filterName state:
     const filteredPersons = persons.filter(person => person.name.includes(filterName))
     // conditional that checks if there are no matches or else renders filtered list of persons: 
@@ -9,7 +9,10 @@ const Persons = ({persons, filterName}) => {
       return (
         <ul>
           {filteredPersons.map(person => 
-            <li key={person.id}>{person.name} {person.number} <button>delete</button></li>)}
+            <li key={person.id}>
+              {person.name} {person.number} <button onClick={() => deletePerson(person.id)}>delete</button>
+            </li>)
+          }
         </ul>
       )
     }

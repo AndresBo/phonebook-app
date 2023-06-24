@@ -1,11 +1,6 @@
 {
   "persons": [
     {
-      "id": 1,
-      "name": "Arto Hellas",
-      "number": "0421243429"
-    },
-    {
       "id": 2,
       "name": "Pablo Picasso",
       "number": "0421243429"
@@ -16,24 +11,14 @@
       "number": "0421243429"
     },
     {
-      "id": "UZTYmkhSeN1eCJBZYeKvX",
-      "name": "Paco Beltran ",
-      "number": "0421243428"
-    },
-    {
-      "id": "nchsjnTRRr8K9eAeEtVWQ",
-      "name": "Maria Parra",
-      "number": "0423453459"
-    },
-    {
       "id": "2d5Kbk0YL7EEqf3cLsk1Y",
       "name": "Alex Holder",
       "number": "0456231234"
     },
     {
-      "id": "xJwO4VXDf6y0atIPErXU_",
-      "name": "Marina Romero",
-      "number": "0421234556"
+      "id": "qpr2pDwoVQE3qMz2dXuog",
+      "name": "Artos Hellas",
+      "number": "0424124453"
     }
   ]
 }

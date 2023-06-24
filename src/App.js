@@ -13,6 +13,7 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('')
   const [filterName, setFilterName] = useState('')
 
+
   // useEffect gets data at the first render of the app - note empty array as second useEffect argument:
   useEffect(() => {
     personService
@@ -20,8 +21,9 @@ const App = () => {
       .then(initialPersons => {
         setPersons(initialPersons)
       })
-  }, [] )
+  }, [persons] )
   
+
   // add new person object to persons state:
   const addPerson = (event) => {
     event.preventDefault()
@@ -46,17 +48,29 @@ const App = () => {
       })
   }
 
+
+  const deletePerson = (id) => {
+    console.log('delete person with id: ',id)
+    //find the person in the persons array
+    
+    axios.delete(`http://localhost:3001/persons/${id}`)
+    
+  }
+
+
   // event handler for newName state
   const handleNameChange = (event) => {
     //console.log(event.target.value)
     setNewName(event.target.value)
   }
 
+
   // event handler for newNumber state
   const handleNumberChange = (event) => {
     setNewNumber(event.target.value)
   }
   
+
   // event handler for filterName state
   const handleFilterNameChange = (event) => {
     setFilterName(event.target.value)
@@ -81,6 +95,7 @@ const App = () => {
       <Persons 
         persons={persons}
         filterName={filterName}
+        deletePerson={deletePerson}
       />
     </div>
   )
