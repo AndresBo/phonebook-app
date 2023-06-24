@@ -50,11 +50,9 @@ const App = () => {
 
 
   const deletePerson = (id) => {
-    console.log('delete person with id: ',id)
-    //find the person in the persons array
-    
-    axios.delete(`http://localhost:3001/persons/${id}`)
-    
+    // use personService module that comunicates with backend
+    personService
+      .deleteOnePerson(id)
   }
 
 
