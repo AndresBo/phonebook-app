@@ -4,6 +4,7 @@ import axios from 'axios'
 import Persons from './components/Persons'
 import PersonForm from './components/PersonForm'
 import Filter from './components/Filter'
+import personService from './services/persons'
 
 
 const App = () => {
@@ -14,8 +15,8 @@ const App = () => {
 
   // useEffect gets data at the first render of the app component:
   useEffect(() => {
-    axios
-      .get('http://localhost:3001/persons')
+    personService
+      .getAll()
       .then(response => {
         setPersons(response.data)
       })
@@ -35,6 +36,7 @@ const App = () => {
       name: newName,
       number: newNumber
     }
+    
     // add the new person to the persons state using concat to avoid mutating state
     setPersons(persons.concat(personObject))
     // set state newName to an empty string
