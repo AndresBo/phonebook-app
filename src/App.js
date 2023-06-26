@@ -21,16 +21,34 @@ const App = () => {
       .then(initialPersons => {
         setPersons(initialPersons)
       })
-  }, [persons] )
+  },[])
   
 
   // add new person object to persons state:
   const addPerson = (event) => {
     event.preventDefault()
-    // check and reject for duplicate names
+    // check for duplicate name:
     const findDuplicate = persons.find(person => person.name === newName)
+    // if a duplicate is found ask if wish to update or not
     if (findDuplicate) {
-      return alert(`${newName} is already added to phonebook`)
+      // ask to update number or not
+      const confirm = window.confirm(`do you wish to update ${findDuplicate.name} phone number?`)
+      // if user ask to replace 
+      if (confirm) { 
+        // copy old person object with updated number using spread syntax
+        const updatedPersonObject = { ...findDuplicate, number: newNumber }
+        // send PUT http request:
+        axios.put(`http://localhost:3001/persons/${findDuplicate.id}`, updatedPersonObject)
+              .then(response => {
+                setNewName('')
+                setNewNumber('')
+                setPersons(persons.map(person => person.id !== findDuplicate.id ? person : updatedPersonObject) )
+              })
+              .catch(error => console.error(error.message))
+        return alert(`${newName} number was updated`)
+      } else {
+        return alert(`${newName} is already added to phonebook and was not updated`)
+      }
     }
     // define the new person object
     const personObject = {
