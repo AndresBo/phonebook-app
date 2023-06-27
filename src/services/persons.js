@@ -13,7 +13,7 @@ const create = newObject => {
 }
 
 const deleteOnePerson = (id) => {
-    axios.delete(`http://localhost:3001/persons/${id}`)
+    axios.delete(`${baseUrl}/${id}`)
 }
 
 const updateNumber = (id, updatedPersonObject) => {

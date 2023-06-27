@@ -1,16 +1,6 @@
 {
   "persons": [
     {
-      "id": 2,
-      "name": "Pablo Picasso",
-      "number": "0401010101"
-    },
-    {
-      "id": "2d5Kbk0YL7EEqf3cLsk1Y",
-      "name": "Alex Holder",
-      "number": "0400000000"
-    },
-    {
       "id": "iibpUcpC5if-v1oKDA0YP",
       "name": "Artos Hellas",
       "number": "0432323232"
@@ -26,9 +16,9 @@
       "number": "0421234228"
     },
     {
-      "id": "W-Z4TnCEC3BuJuzsWXy23",
-      "name": "Maria Parra",
-      "number": "0421212121"
+      "id": "GLb90Z6IuPtQRbLrFkTVK",
+      "name": "Alex Holder",
+      "number": "0423456734"
     }
   ]
 }
