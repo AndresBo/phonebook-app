@@ -47,6 +47,8 @@ const App = () => {
               .catch(error => console.error(error.message))
         return alert(`${newName} number was updated`)
       } else {
+        setNewName('')
+        setNewNumber('')
         return alert(`${newName} is already added to phonebook and was not updated`)
       }
     }
