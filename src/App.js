@@ -73,6 +73,7 @@ const App = () => {
     // use personService module that comunicates with backend
     personService
       .deleteOnePerson(id)
+      setPersons(persons.filter(person => person.id !== id))
   }
 
 

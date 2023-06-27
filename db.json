@@ -1,21 +1,6 @@
 {
   "persons": [
     {
-      "id": "iibpUcpC5if-v1oKDA0YP",
-      "name": "Artos Hellas",
-      "number": "0432323232"
-    },
-    {
-      "id": "JI8P_sO_r0986KLq_8Yv7",
-      "name": "Andres Borrero",
-      "number": "0421234272"
-    },
-    {
-      "id": "5yNW5W82tNCyMUOBlXjSY",
-      "name": "Ada Lovelace",
-      "number": "0421234228"
-    },
-    {
       "id": "GLb90Z6IuPtQRbLrFkTVK",
       "name": "Alex Holder",
       "number": "0423456734"

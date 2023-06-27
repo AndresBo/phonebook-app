@@ -14,6 +14,7 @@ const create = newObject => {
 
 const deleteOnePerson = (id) => {
     axios.delete(`${baseUrl}/${id}`)
+    
 }
 
 const updateNumber = (id, updatedPersonObject) => {
