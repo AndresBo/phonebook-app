@@ -12,6 +12,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [filterName, setFilterName] = useState('')
+  const [message, setMessage] = useState('a message...')
 
 
   // useEffect gets data at the first render of the app - note empty array as second useEffect argument:
