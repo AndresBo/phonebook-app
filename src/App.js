@@ -5,6 +5,7 @@ import PersonForm from './components/PersonForm'
 import Filter from './components/Filter'
 import Notification from './components/Notification'
 import personService from './services/persons'
+import './index.css'
 
 
 const App = () => {
