@@ -13,7 +13,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [filterName, setFilterName] = useState('')
-  const [message, setMessage] = useState('a message...')
+  const [message, setMessage] = useState(null)
 
 
   // useEffect gets data at the first render of the app - Note the empty array as second useEffect argument:
@@ -47,7 +47,15 @@ const App = () => {
               setNewName('')
               setNewNumber('')
             })
-        return alert(`${updatedPersonObject.name} number was updated`)
+            .catch(error => {
+              setMessage(`Note '${findDuplicate.name}' can't be updated, has already been removed by another user`)
+              setTimeout(() => {setMessage(null)}, 10000)
+              setNewName('')
+              setNewNumber('')
+              setPersons(persons.filter(person => person.id !== findDuplicate.id))
+            })
+        return
+
       } else {
         setNewName('')
         setNewNumber('')
