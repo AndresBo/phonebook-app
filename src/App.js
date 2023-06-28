@@ -93,7 +93,8 @@ const App = () => {
         setMessage(`Entry has been deleted`)
         setTimeout(() => {setMessage(null)}, 10000)
       })
-
+      setMessage(`Entry has been deleted`)
+      setTimeout(() => {setMessage(null)}, 10000)
       setPersons(persons.filter(person => person.id !== id))
   }
 
