@@ -89,10 +89,12 @@ const App = () => {
     // use personService module that comunicates with backend
     personService
       .deleteOnePerson(id)
+      // catch error if user deletes an entry that has already been deleted
       .catch(error => {
         setMessage(`Entry has been deleted`)
         setTimeout(() => {setMessage(null)}, 10000)
       })
+      // display message to confirm entry has been deleted
       setMessage(`Entry has been deleted`)
       setTimeout(() => {setMessage(null)}, 10000)
       setPersons(persons.filter(person => person.id !== id))
