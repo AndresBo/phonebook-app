@@ -4,6 +4,7 @@ import axios from 'axios'
 import Persons from './components/Persons'
 import PersonForm from './components/PersonForm'
 import Filter from './components/Filter'
+import Notification from './components/Notification'
 import personService from './services/persons'
 
 
@@ -15,7 +16,7 @@ const App = () => {
   const [message, setMessage] = useState('a message...')
 
 
-  // useEffect gets data at the first render of the app - note empty array as second useEffect argument:
+  // useEffect gets data at the first render of the app - Note the empty array as second useEffect argument:
   useEffect(() => {
     personService
       .getAll()
@@ -100,6 +101,9 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+      <Notification 
+        message={message} 
+      />
       <Filter 
         filterName={filterName} 
         handleFilterNameChange={handleFilterNameChange}
