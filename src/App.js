@@ -44,6 +44,8 @@ const App = () => {
           .updateNumber(updatedPersonObject.id, updatedPersonObject)
             .then(updatedPerson => {
               setPersons(persons.map(person => person.id !== updatedPerson.id ? person : updatedPerson))
+              setMessage(`'${updatedPerson.name}' number was updated`)
+              setTimeout(() => {setMessage(null)}, 10000)
               setNewName('')
               setNewNumber('')
             })
