@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
-import axios from 'axios'
 import Persons from './components/Persons'
 import PersonForm from './components/PersonForm'
 import Filter from './components/Filter'
