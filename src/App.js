@@ -59,7 +59,9 @@ const App = () => {
       } else {
         setNewName('')
         setNewNumber('')
-        return alert(`${newName} is already added to phonebook and was not updated`)
+        setMessage(`Note '${findDuplicate.name}' was not updated`)
+        setTimeout(() => {setMessage(null)}, 10000)
+        return 
       }
     }
     // define the new person object
