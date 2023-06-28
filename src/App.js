@@ -73,10 +73,12 @@ const App = () => {
     // add the new person to the persons state using concat to avoid mutating state
     personService
       .create(personObject)
-      .then(returnedNote => {
-        setPersons(persons.concat(returnedNote))
+      .then(returnedPerson => {
+        setPersons(persons.concat(returnedPerson))
         setNewName('')
         setNewNumber('')
+        setMessage(`Note '${returnedPerson.name} was added to Phonebook`)
+        setTimeout(() => {setMessage(null)}, 10000)
       })
   }
 
