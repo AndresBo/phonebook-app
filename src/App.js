@@ -79,7 +79,14 @@ const App = () => {
         setPersons(persons.concat(returnedPerson))
         setNewName('')
         setNewNumber('')
-        setMessage(`Note '${returnedPerson.name} was added to Phonebook`)
+        setMessage(`Note '${returnedPerson.name.error} was added to Phonebook`)
+        setTimeout(() => {setMessage(null)}, 10000)
+      })
+      .catch((error) => {
+        console.log(error.response.data.error);
+        setNewName('')
+        setNewNumber('')
+        setMessage(`${error.response.data.error}`)
         setTimeout(() => {setMessage(null)}, 10000)
       })
   }
