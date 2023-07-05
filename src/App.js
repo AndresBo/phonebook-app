@@ -50,11 +50,16 @@ const App = () => {
               setNewNumber('')
             })
             .catch(error => {
-              setMessage(`Note '${findDuplicate.name}' can't be updated, has already been removed by another user`)
-              setTimeout(() => {setMessage(null)}, 10000)
+              // setMessage(`Note '${findDuplicate.name}' can't be updated, has already been removed by another user`)
+              // setTimeout(() => {setMessage(null)}, 10000)
+              // setNewName('')
+              // setNewNumber('')
+              // setPersons(persons.filter(person => person.id !== findDuplicate.id))
+              console.log(error.response.data.error);
               setNewName('')
               setNewNumber('')
-              setPersons(persons.filter(person => person.id !== findDuplicate.id))
+              setMessage(`${error.response.data.error}`)
+              setTimeout(() => {setMessage(null)}, 10000)
             })
         return
 
