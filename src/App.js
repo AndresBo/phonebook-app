@@ -73,7 +73,7 @@ const App = () => {
     }
     // define the new person object
     const personObject = {
-      id: nanoid(),
+      //id: nanoid(),
       name: newName,
       number: newNumber
     }
@@ -84,7 +84,7 @@ const App = () => {
         setPersons(persons.concat(returnedPerson))
         setNewName('')
         setNewNumber('')
-        setMessage(`Note '${returnedPerson.name.error} was added to Phonebook`)
+        setMessage(`Note '${returnedPerson.name} was added to Phonebook`)
         setTimeout(() => {setMessage(null)}, 10000)
       })
       .catch((error) => {
