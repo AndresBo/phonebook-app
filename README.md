@@ -1,6 +1,6 @@
 # Phonebook app
 
-1. Website Description
+## 1. Website Description
 
 A company with a large customer base requires a web application to keep customer details safe and accessible for its staff. The name of the application is Phonebook. 
 
