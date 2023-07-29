@@ -24,5 +24,5 @@ const updateNumber = (id, updatedPersonObject) => {
     const request = axios.put(`${baseUrl}/${id}`, updatedPersonObject)
     return request.then(response => response.data)
 }
-
+// eslint-disable-next-line import/no-anonymous-default-export
 export default { getAll, create, deleteOnePerson, updateNumber }
