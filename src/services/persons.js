@@ -26,7 +26,10 @@ const create = newObject => {
 }
 
 const deleteOnePerson = (id) => {
-    return axios.delete(`${baseUrl}/${id}`)
+    const config = {
+        headers: { Authorization: token }
+    }
+    return axios.delete(`${baseUrl}/${id}`, config)
 }
 
 const updateNumber = (id, updatedPersonObject) => {
