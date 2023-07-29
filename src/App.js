@@ -43,7 +43,7 @@ const App = () => {
       const user = await loginService.login({
         username, password
       })
-      console.log(user)
+      personService.setToken(user.token)
       setUser(user)
       setUsername('')
       setPassword('')
@@ -160,11 +160,11 @@ const App = () => {
   const handleFilterNameChange = (event) => {
     setFilterName(event.target.value)
   }  
-   
   
-  return (
-    <div>
-      <h2>Phonebook</h2>
+  if (user === null) {
+    return (
+      <div>
+        <h2>Phonebook</h2>
       <Notification 
         message={message} 
       />
@@ -174,6 +174,16 @@ const App = () => {
         setUsername={setUsername}
         password={password}
         setPassword={setPassword}
+      />
+      </div>
+    )
+  }
+  
+  return (
+    <div>
+      <h2>Phonebook</h2>
+      <Notification 
+        message={message} 
       />
       <Filter 
         filterName={filterName} 
