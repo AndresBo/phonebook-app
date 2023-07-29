@@ -3,20 +3,30 @@ import { nanoid } from 'nanoid'
 import Persons from './components/Persons'
 import PersonForm from './components/PersonForm'
 import Filter from './components/Filter'
+import LoginForm from './components/LoginForm'
 import Notification from './components/Notification'
 import personService from './services/persons'
+import loginService from './services/login'
 import './index.css'
+
 
 
 const App = () => {
   const [persons, setPersons] = useState([]) 
+
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
+
   const [filterName, setFilterName] = useState('')
+
   const [message, setMessage] = useState(null)
 
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
-  // useEffect gets data at the first render of the app - Note the empty array as second useEffect argument:
+  const [user, setUser] = useState(null)
+
+  // GET data at the first render of the app - Note the empty array as second useEffect argument:
   useEffect(() => {
     personService
       .getAll()
@@ -24,9 +34,29 @@ const App = () => {
         setPersons(initialPersons)
       })
   },[])
+
+  // LOGIN
+  const handleLogin = async (event) => {
+    event.preventDefault()
+    
+    try {
+      const user = await loginService.login({
+        username, password
+      })
+      console.log(user)
+      setUser(user)
+      setUsername('')
+      setPassword('')
+    } catch (error) {
+      setMessage('Wrong credentials')
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000)
+    }
+  }
   
 
-  // add new person object to persons state:
+  // ADD NEW PERSON
   const addPerson = (event) => {
     event.preventDefault()
     // check for duplicate name:
@@ -96,7 +126,7 @@ const App = () => {
       })
   }
 
-
+  // DELETE PERSON
   const deletePerson = (id) => {
     // use personService module that comunicates with backend
     personService
@@ -137,6 +167,13 @@ const App = () => {
       <h2>Phonebook</h2>
       <Notification 
         message={message} 
+      />
+      <LoginForm
+        handleLogin={handleLogin}
+        username={username}
+        setUsername={setUsername}
+        password={password}
+        setPassword={setPassword}
       />
       <Filter 
         filterName={filterName} 
