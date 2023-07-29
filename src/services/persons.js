@@ -33,7 +33,10 @@ const deleteOnePerson = (id) => {
 }
 
 const updateNumber = (id, updatedPersonObject) => {
-    const request = axios.put(`${baseUrl}/${id}`, updatedPersonObject)
+    const config = {
+        headers: { Authorization: token }
+    }
+    const request = axios.put(`${baseUrl}/${id}`, updatedPersonObject, config)
     return request.then(response => response.data)
 }
 // eslint-disable-next-line import/no-anonymous-default-export
