@@ -5,6 +5,11 @@ import axios from "axios";
 // to 3001
 const baseUrl = '/api/persons'
 
+// private variable used to set user authorization token 
+let token = null
+const setToken = newToken => {
+    token = `Bearer ${newToken}`
+}
 
 const getAll = () => {
     const request = axios.get(baseUrl)
@@ -12,7 +17,11 @@ const getAll = () => {
 }
 
 const create = newObject => {
-    const request = axios.post(baseUrl, newObject)
+    const config = {
+        headers: { Authorization: token }
+    }
+
+    const request = axios.post(baseUrl, newObject, config)
     return request.then(response => response.data)
 }
 
@@ -25,4 +34,4 @@ const updateNumber = (id, updatedPersonObject) => {
     return request.then(response => response.data)
 }
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { getAll, create, deleteOnePerson, updateNumber }
+export default { setToken, getAll, create, deleteOnePerson, updateNumber }
