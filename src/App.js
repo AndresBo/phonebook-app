@@ -127,19 +127,34 @@ const App = () => {
   }
 
   // DELETE PERSON
-  const deletePerson = (id) => {
-    // use personService module that comunicates with backend
-    personService
-      .deleteOnePerson(id)
-      // catch error if user deletes an entry that has already been deleted
-      .catch(error => {
-        setMessage(`Entry has been deleted`)
-        setTimeout(() => {setMessage(null)}, 10000)
-      })
-      // display message to confirm entry has been deleted
+  // const deletePerson = (id) => {
+  //   // use personService module that comunicates with backend
+  //   personService
+  //     .deleteOnePerson(id)
+  //     // catch error if user deletes an entry that has already been deleted
+  //     .catch(error => {
+  //       setMessage(`Entry has been deleted`)
+  //       setTimeout(() => {setMessage(null)}, 10000)
+  //     })
+  //     // display message to confirm entry has been deleted
+  //     setMessage(`Entry has been deleted`)
+  //     setTimeout(() => {setMessage(null)}, 5000)
+  //     setPersons(persons.filter(person => person.id !== id))
+  // }
+
+  const deletePerson = async (id) => {
+    try {
+      const response = await personService.deleteOnePerson(id)
+      console.log('delete',response)
       setMessage(`Entry has been deleted`)
-      setTimeout(() => {setMessage(null)}, 10000)
+      setTimeout(() => {setMessage(null)}, 5000)
       setPersons(persons.filter(person => person.id !== id))
+    } catch (error) {
+      setMessage('Not authorized to delete')
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000)
+    }
   }
 
 
