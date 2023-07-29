@@ -1,5 +1,8 @@
 import axios from "axios";
-// because both front end and backend are at the same address, baseUrl can be a relative URL
+// because both front end and backend are at the same address, baseUrl can be a relative URL.
+// bear in mind this means the app does not work during development, as the requests go to port 3000
+// but the backend is at port 3001. Added the 'proxy' declaration to package.json to redirect requests 
+// to 3001
 const baseUrl = '/api/persons'
 
 
