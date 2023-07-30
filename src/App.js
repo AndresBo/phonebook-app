@@ -35,6 +35,17 @@ const App = () => {
       })
   },[])
 
+  // When app is opened, check for logged in users in local storage, if so, save user to app state
+  // and set JWT for HTML requests:
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedPhonebookappUser')
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON)
+      setUser(user)
+      personService.setToken(user.token)
+    }
+  }, [])
+
   // LOGIN
   const handleLogin = async (event) => {
     event.preventDefault()
@@ -43,6 +54,9 @@ const App = () => {
       const user = await loginService.login({
         username, password
       })
+      window.localStorage.setItem(
+        'loggedPhonebookappUser', JSON.stringify(user)
+      )
       personService.setToken(user.token)
       setUser(user)
       setUsername('')
