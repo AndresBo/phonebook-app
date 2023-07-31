@@ -1,3 +1,10 @@
-const LoggedUser = ({ user }) =>  <p>{user.name} logged in</p>
+const LoggedUser = ({ user, handleLogout }) => {
+  return (
+    <div>
+      <div>{user.name} logged in</div>
+      <button onClick={handleLogout}>logout</button>
+    </div>
+  )
+}
 
 export default LoggedUser

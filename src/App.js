@@ -71,6 +71,12 @@ const App = () => {
       }, 5000)
     }
   }
+
+  // LOG OUT
+  const handleLogout = () => {
+    window.localStorage.clear()
+    setUser(null)
+  }
   
 
   // ADD NEW PERSON
@@ -201,6 +207,7 @@ const App = () => {
       <h2>Phonebook</h2>
       <LoggedUser
         user={user}
+        handleLogout={handleLogout}
       />
       <Notification 
         message={message} 
