@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
+
 import Persons from './components/Persons'
 import PersonForm from './components/PersonForm'
 import Filter from './components/Filter'
 import LoginForm from './components/LoginForm'
 import Notification from './components/Notification'
+import LoggedUser from './components/LoggedUser'
+
 import personService from './services/persons'
 import loginService from './services/login'
 import './index.css'
@@ -196,6 +199,9 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+      <LoggedUser
+        user={user}
+      />
       <Notification 
         message={message} 
       />
