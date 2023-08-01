@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState, forwardRef, useImperativeHandle } from 'react'
+
 // This component wrapps other components to give them visibility only when requested.
 // note the {props.children} that references the wrapped component.
-const Togglable = (props) => {
+// forwardRef allows access to ref assigned.
+const Togglable = forwardRef((props, refs) => {
   const [visible, setVisible] = useState(false)
   // inline css 'display' that returns 'none' to hide <div> section 
   const hideWhenVisible = { display: visible ? 'none' : '' }
@@ -10,6 +12,12 @@ const Togglable = (props) => {
   const toggleVisibility = () => {
     setVisible(!visible)
   }
+  // make toogleVisibility available outside Toggable component
+  useImperativeHandle(refs, () => {
+    return {
+      toggleVisibility
+    }
+  })
 
   return (
     <div>
@@ -22,6 +30,6 @@ const Togglable = (props) => {
       </div>
     </div>
   )
-}
+})
 
 export default Togglable

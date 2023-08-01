@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import { nanoid } from 'nanoid'
+import { useState, useEffect, useRef } from 'react'
 
 import Persons from './components/Persons'
 import PersonForm from './components/PersonForm'
@@ -13,15 +12,12 @@ import personService from './services/persons'
 import loginService from './services/login'
 import './index.css'
 
-
-
 const App = () => {
   const [persons, setPersons] = useState([]) 
-
+  const [filterName, setFilterName] = useState('')
+  
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
-
-  const [filterName, setFilterName] = useState('')
 
   const [message, setMessage] = useState(null)
 
@@ -29,7 +25,8 @@ const App = () => {
   const [password, setPassword] = useState('')
 
   const [user, setUser] = useState(null)
-
+  // this Ref allows access to toggleVisibility function in Toggable component
+  const personFormRef = useRef()
 
   // GET data at the first render of the app - Note the empty array as second useEffect argument:
   useEffect(() => {
@@ -125,10 +122,10 @@ const App = () => {
     }
     // define the new person object
     const personObject = {
-      //id: nanoid(),
       name: newName,
       number: newNumber
     }
+    personFormRef.current.toggleVisibility()
     // add the new person to the persons state using concat to avoid mutating state
     personService
       .create(personObject)
@@ -218,7 +215,7 @@ const App = () => {
         filterName={filterName} 
         handleFilterNameChange={handleFilterNameChange}
       />
-      <Togglable buttonLabel='add person'>
+      <Togglable buttonLabel='add person' ref={personFormRef}>
         <PersonForm
           addPerson={addPerson}
           newName={newName}
