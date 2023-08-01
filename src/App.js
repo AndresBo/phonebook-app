@@ -215,15 +215,17 @@ const App = () => {
         filterName={filterName} 
         handleFilterNameChange={handleFilterNameChange}
       />
-      <Togglable buttonLabel='add person' ref={personFormRef}>
-        <PersonForm
-          addPerson={addPerson}
-          newName={newName}
-          handleNameChange={handleNameChange}
-          newNumber={newNumber}
-          handleNumberChange={handleNumberChange}
-        />
-      </Togglable>
+      {user.admin ? (
+        <Togglable buttonLabel='add person' ref={personFormRef}>
+          <PersonForm
+            addPerson={addPerson}
+            newName={newName}
+            handleNameChange={handleNameChange}
+            newNumber={newNumber}
+            handleNumberChange={handleNumberChange}
+          />
+        </Togglable>
+      ) : null}
       <h2>Numbers</h2>
       <Persons 
         persons={persons}
