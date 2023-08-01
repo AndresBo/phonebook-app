@@ -30,6 +30,7 @@ const App = () => {
 
   const [user, setUser] = useState(null)
 
+
   // GET data at the first render of the app - Note the empty array as second useEffect argument:
   useEffect(() => {
     personService
@@ -38,6 +39,7 @@ const App = () => {
         setPersons(initialPersons)
       })
   },[])
+
 
   // When app is opened, check for logged in users in local storage, if so, save user to app state
   // and set JWT for HTML requests:
@@ -49,6 +51,7 @@ const App = () => {
       personService.setToken(user.token)
     }
   }, [])
+
 
   // LOGIN
   const handleLogin = async (event) => {
@@ -104,11 +107,6 @@ const App = () => {
               setNewNumber('')
             })
             .catch(error => {
-              // setMessage(`Note '${findDuplicate.name}' can't be updated, has already been removed by another user`)
-              // setTimeout(() => {setMessage(null)}, 10000)
-              // setNewName('')
-              // setNewNumber('')
-              // setPersons(persons.filter(person => person.id !== findDuplicate.id))
               console.log(error.response.data.error);
               setNewName('')
               setNewNumber('')
@@ -150,6 +148,7 @@ const App = () => {
       })
   }
 
+
   // DELETE PERSON
   const deletePerson = async (id) => {
     try {
@@ -183,8 +182,10 @@ const App = () => {
   // event handler for filterName state
   const handleFilterNameChange = (event) => {
     setFilterName(event.target.value)
-  }  
-  
+  }
+
+
+  // if user not logged in, render login form
   if (user === null) {
     return (
       <div>
@@ -217,13 +218,15 @@ const App = () => {
         filterName={filterName} 
         handleFilterNameChange={handleFilterNameChange}
       />
-      <PersonForm 
-        addPerson={addPerson} 
-        newName={newName} 
-        handleNameChange={handleNameChange}
-        newNumber={newNumber}
-        handleNumberChange={handleNumberChange}
-      />
+      <Togglable buttonLabel='add person'>
+        <PersonForm
+          addPerson={addPerson}
+          newName={newName}
+          handleNameChange={handleNameChange}
+          newNumber={newNumber}
+          handleNumberChange={handleNumberChange}
+        />
+      </Togglable>
       <h2>Numbers</h2>
       <Persons 
         persons={persons}
