@@ -7,6 +7,7 @@ import Filter from './components/Filter'
 import LoginForm from './components/LoginForm'
 import Notification from './components/Notification'
 import LoggedUser from './components/LoggedUser'
+import Togglable from './components/Toggable'
 
 import personService from './services/persons'
 import loginService from './services/login'
@@ -79,7 +80,7 @@ const App = () => {
   }
   
 
-  // ADD NEW PERSON
+  // ADD NEW PERSON or UPDATE EXISTING
   const addPerson = (event) => {
     event.preventDefault()
     // check for duplicate name:
