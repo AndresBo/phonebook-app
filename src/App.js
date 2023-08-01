@@ -227,7 +227,8 @@ const App = () => {
         </Togglable>
       ) : null}
       <h2>Numbers</h2>
-      <Persons 
+      <Persons
+        user={user} 
         persons={persons}
         filterName={filterName}
         deletePerson={deletePerson}
