@@ -29,9 +29,9 @@ const App = () => {
   const [user, setUser] = useState(null)
   const [users, setUsers] = useState([])
 
-  // this Ref allows access to toggleVisibility function in Toggable component
+  // these Ref allows access to toggleVisibility function in Toggable component
   const personFormRef = useRef()
-
+  const newUserFormRef = useRef()
   // GET all persons
   useEffect(() => {
     personService
@@ -151,7 +151,7 @@ const App = () => {
         setTimeout(() => {setMessage(null)}, 10000)
       })
       .catch((error) => {
-        console.log(error.response.data.error);
+        console.log(error.response.data.error)
         setNewName('')
         setNewNumber('')
         setMessage(`${error.response.data.error}`)
@@ -176,20 +176,17 @@ const App = () => {
     }
   }
 
-
   // event handler for newName state
   const handleNameChange = (event) => {
     //console.log(event.target.value)
     setNewName(event.target.value)
   }
 
-
   // event handler for newNumber state
   const handleNumberChange = (event) => {
     setNewNumber(event.target.value)
   }
   
-
   // event handler for filterName state
   const handleFilterNameChange = (event) => {
     setFilterName(event.target.value)
@@ -198,18 +195,18 @@ const App = () => {
   // ADD USER
   const createUser = async (userObject) => {
     try {
+      newUserFormRef.current.toggleVisibility()
       const newUser = await usersService.createUser(userObject)
-
       setUsers(users.concat(newUser))
         
     } catch(error) {
-      setMessage('unauthorized to create users')
+      console.log(error.response.data.error);
+      setMessage(error.response.data.error)
       setTimeout(() => {
         setMessage(null)
       }, 5000)
     }
   }
-
 
   // if user not logged in, render login form
   if (user === null) {
@@ -255,8 +252,11 @@ const App = () => {
           />
         </Togglable>
       ) : null}
-      <NewUser createUser={createUser}/>
-
+      {user.admin ? (
+      <Togglable buttonLabel='add user' ref={newUserFormRef}>
+        <NewUser createUser={createUser}/>
+      </Togglable>
+      ) : null}
       <h2>Numbers</h2>
       <Persons
         user={user} 
