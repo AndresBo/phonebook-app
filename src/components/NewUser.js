@@ -14,6 +14,9 @@ const NewUser = ({ createUser }) => {
       password: newPassword,
       admin: newAdmin
     })
+    setNewUsername('')
+    setNewPassword('')
+    setNewName('')
   }
 
   return (
