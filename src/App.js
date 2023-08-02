@@ -196,12 +196,18 @@ const App = () => {
   }
 
   // ADD USER
-  const createUser = (userObject) => {
-    usersService
-      .createUser(userObject)
-      .then(returnedUser => {
-        setUsers(users.concat(returnedUser))
-      })
+  const createUser = async (userObject) => {
+    try {
+      const newUser = await usersService.createUser(userObject)
+
+      setUsers(users.concat(newUser))
+        
+    } catch(error) {
+      setMessage('unauthorized to create users')
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000)
+    }
   }
 
 
