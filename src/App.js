@@ -7,9 +7,11 @@ import LoginForm from './components/LoginForm'
 import Notification from './components/Notification'
 import LoggedUser from './components/LoggedUser'
 import Togglable from './components/Toggable'
+import NewUser from './components/NewUser'
 
 import personService from './services/persons'
 import loginService from './services/login'
+import usersService from './services/users'
 import './index.css'
 
 const App = () => {
@@ -25,10 +27,12 @@ const App = () => {
   const [password, setPassword] = useState('')
 
   const [user, setUser] = useState(null)
+  const [users, setUsers] = useState([])
+
   // this Ref allows access to toggleVisibility function in Toggable component
   const personFormRef = useRef()
 
-  // GET data at the first render of the app - Note the empty array as second useEffect argument:
+  // GET all persons
   useEffect(() => {
     personService
       .getAll()
@@ -37,6 +41,14 @@ const App = () => {
       })
   },[])
 
+  // GET all users
+  useEffect(() => {
+    usersService
+      .getAllUsers()
+      .then(initialUsers => {
+        setUsers(initialUsers)
+      })
+  },[])
 
   // When app is opened, check for logged in users in local storage, if so, save user to app state
   // and set JWT for HTML requests:
@@ -46,6 +58,7 @@ const App = () => {
       const user = JSON.parse(loggedUserJSON)
       setUser(user)
       personService.setToken(user.token)
+      usersService.setAdminToken(user.token)
     }
   }, [])
 
@@ -62,6 +75,7 @@ const App = () => {
         'loggedPhonebookappUser', JSON.stringify(user)
       )
       personService.setToken(user.token)
+      usersService.setAdminToken(user.token)
       setUser(user)
       setUsername('')
       setPassword('')
@@ -181,6 +195,15 @@ const App = () => {
     setFilterName(event.target.value)
   }
 
+  // ADD USER
+  const createUser = (userObject) => {
+    usersService
+      .createUser(userObject)
+      .then(returnedUser => {
+        setUsers(users.concat(returnedUser))
+      })
+  }
+
 
   // if user not logged in, render login form
   if (user === null) {
@@ -226,6 +249,8 @@ const App = () => {
           />
         </Togglable>
       ) : null}
+      <NewUser createUser={createUser}/>
+
       <h2>Numbers</h2>
       <Persons
         user={user} 
