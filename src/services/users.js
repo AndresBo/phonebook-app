@@ -13,7 +13,6 @@ const getAllUsers = () => {
 }
 
 const createUser = newObject => {
-  
   const config = {
       headers: { Authorization: adminToken }
   }
@@ -21,5 +20,13 @@ const createUser = newObject => {
   const request = axios.post(baseUrl, newObject, config)
   return request.then(response => response.data)
 }
+
+const deleteUser = (id) => {
+  const config = {
+    headers: { Authorization: adminToken }
+  }
+
+  return axios.delete(`${baseUrl}/${id}`, config)
+}
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { setAdminToken, getAllUsers, createUser }
+export default { setAdminToken, getAllUsers, createUser, deleteUser }
