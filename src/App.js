@@ -8,6 +8,7 @@ import Notification from './components/Notification'
 import LoggedUser from './components/LoggedUser'
 import Togglable from './components/Toggable'
 import NewUser from './components/NewUser'
+import UserFilter from './components/UserFilter'
 
 import personService from './services/persons'
 import loginService from './services/login'
@@ -28,6 +29,7 @@ const App = () => {
 
   const [user, setUser] = useState(null)
   const [users, setUsers] = useState([])
+  const [filterUser, setFilterUser] = useState('')
 
   // these Ref allows access to toggleVisibility function in Toggable component
   const personFormRef = useRef()
@@ -192,6 +194,10 @@ const App = () => {
     setFilterName(event.target.value)
   }
 
+  const handleFilterUserChange = (event) => {
+    setFilterUser(event.target.value)
+  }
+
   // ADD USER
   const createUser = async (userObject) => {
     try {
@@ -257,6 +263,10 @@ const App = () => {
         <NewUser createUser={createUser}/>
       </Togglable>
       ) : null}
+      <UserFilter
+        filterUser={filterUser}
+        handleFilterUserChange={handleFilterUserChange}
+        />
       <h2>Numbers</h2>
       <Persons
         user={user} 
