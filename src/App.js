@@ -9,11 +9,12 @@ import LoggedUser from './components/LoggedUser'
 import Togglable from './components/Toggable'
 import NewUser from './components/NewUser'
 import UserFilter from './components/UserFilter'
-
+import ManageUsers from './components/ManageUsers'
 import personService from './services/persons'
 import loginService from './services/login'
 import usersService from './services/users'
 import './index.css'
+
 
 const App = () => {
   const [persons, setPersons] = useState([]) 
@@ -214,6 +215,21 @@ const App = () => {
     }
   }
 
+  // DELETE USER
+  const deleteUser = async (id) => {
+    try {
+      await usersService.deleteUser(id)
+      setMessage(`User has been deleted`)
+      setTimeout(() => {setMessage(null)}, 5000)
+      setUsers(users.filter(user => user.id !== id))
+    } catch(error) {
+      console.log(error.response.data.error)
+      setFilterUser('')
+      setMessage(`${error.response.data.error}`)
+      setTimeout(() => {setMessage(null)}, 10000)
+    }
+  }
+
   // if user not logged in, render login form
   if (user === null) {
     return (
@@ -267,6 +283,11 @@ const App = () => {
         filterUser={filterUser}
         handleFilterUserChange={handleFilterUserChange}
         />
+      <ManageUsers
+        filterUser={filterUser}
+        users={users}
+        deleteUser={deleteUser}
+      />
       <h2>Numbers</h2>
       <Persons
         user={user} 

@@ -1,4 +1,4 @@
-const ManageUsers = ({ filterUser, users }) => {
+const ManageUsers = ({ filterUser, users, deleteUser }) => {
   // create new array of filtered users
   const filteredUsers = users.filter(user => user.name.includes(filterUser))
   
@@ -12,7 +12,7 @@ const ManageUsers = ({ filterUser, users }) => {
           {filteredUsers.map(user => 
             <li key={user.id}>
               {user.name} 
-                {/* <button onClick={() => deleteUser(user.id)}>delete</button> */}
+                <button onClick={() => deleteUser(user.id)}>delete</button>
             </li>)
           }
         </ul>
