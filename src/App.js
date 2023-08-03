@@ -195,6 +195,7 @@ const App = () => {
     setFilterName(event.target.value)
   }
 
+  // event handler for filterUser state
   const handleFilterUserChange = (event) => {
     setFilterUser(event.target.value)
   }
@@ -275,19 +276,20 @@ const App = () => {
         </Togglable>
       ) : null}
       {user.admin ? (
-      <Togglable buttonLabel='add user' ref={newUserFormRef}>
+      <Togglable buttonLabel='manage users' ref={newUserFormRef}>
         <NewUser createUser={createUser}/>
+          <UserFilter
+            filterUser={filterUser}
+            handleFilterUserChange={handleFilterUserChange}
+          />
+          <ManageUsers
+            filterUser={filterUser}
+            users={users}
+            deleteUser={deleteUser}
+          />
       </Togglable>
       ) : null}
-      <UserFilter
-        filterUser={filterUser}
-        handleFilterUserChange={handleFilterUserChange}
-        />
-      <ManageUsers
-        filterUser={filterUser}
-        users={users}
-        deleteUser={deleteUser}
-      />
+      
       <h2>Numbers</h2>
       <Persons
         user={user} 
