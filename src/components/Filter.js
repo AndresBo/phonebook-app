@@ -1,8 +1,8 @@
-// component that renders search name bad
-const Filter = ({filterName, handleFilterNameChange} ) => {
+// component that renders search name field
+const Filter = ({filterName, setFilterName} ) => {
     return (
         <div>
-            Find name: <input value={filterName} onChange={handleFilterNameChange}></input>   
+            Find name: <input value={filterName} onChange={({ target }) => setFilterName(target.value)}></input>   
         </div>
     )
 }

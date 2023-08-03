@@ -32,9 +32,11 @@ const App = () => {
   const [users, setUsers] = useState([])
   const [filterUser, setFilterUser] = useState('')
 
-  // these Ref allows access to toggleVisibility function in Toggable component
+  // these Ref's allows access to toggleVisibility function in Toggable component
+  // by using: 'personFormRef.current.toggleVisibility()'
   const personFormRef = useRef()
   const newUserFormRef = useRef()
+
   // GET all persons
   useEffect(() => {
     personService
@@ -64,7 +66,6 @@ const App = () => {
       usersService.setAdminToken(user.token)
     }
   }, [])
-
 
   // LOGIN
   const handleLogin = async (event) => {
@@ -96,7 +97,6 @@ const App = () => {
     setUser(null)
   }
   
-
   // ADD NEW PERSON or UPDATE EXISTING
   const addPerson = (event) => {
     event.preventDefault()
@@ -179,27 +179,6 @@ const App = () => {
     }
   }
 
-  // event handler for newName state
-  const handleNameChange = (event) => {
-    //console.log(event.target.value)
-    setNewName(event.target.value)
-  }
-
-  // event handler for newNumber state
-  const handleNumberChange = (event) => {
-    setNewNumber(event.target.value)
-  }
-  
-  // event handler for filterName state
-  const handleFilterNameChange = (event) => {
-    setFilterName(event.target.value)
-  }
-
-  // event handler for filterUser state
-  const handleFilterUserChange = (event) => {
-    setFilterUser(event.target.value)
-  }
-
   // ADD USER
   const createUser = async (userObject) => {
     try {
@@ -231,7 +210,8 @@ const App = () => {
     }
   }
 
-  // if user not logged in, render login form
+  // RENDER AREA
+  // if no user logged in
   if (user === null) {
     return (
       <div>
@@ -249,7 +229,7 @@ const App = () => {
       </div>
     )
   }
-  
+  // if a user is logged in: note Toggable component wrapping child components to toggle visibility.
   return (
     <div>
       <h2>Phonebook</h2>
@@ -262,16 +242,16 @@ const App = () => {
       />
       <Filter 
         filterName={filterName} 
-        handleFilterNameChange={handleFilterNameChange}
+        setFilterName={setFilterName}
       />
       {user.admin ? (
         <Togglable buttonLabel='add person' ref={personFormRef}>
           <PersonForm
             addPerson={addPerson}
             newName={newName}
-            handleNameChange={handleNameChange}
+            setNewName={setNewName}
             newNumber={newNumber}
-            handleNumberChange={handleNumberChange}
+            setNewNumber={setNewNumber}
           />
         </Togglable>
       ) : null}
@@ -280,7 +260,7 @@ const App = () => {
         <NewUser createUser={createUser}/>
           <UserFilter
             filterUser={filterUser}
-            handleFilterUserChange={handleFilterUserChange}
+            setFilterUser={setFilterUser}
           />
           <ManageUsers
             filterUser={filterUser}

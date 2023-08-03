@@ -1,3 +1,4 @@
+// displays user name and logout button
 const LoggedUser = ({ user, handleLogout }) => {
   return (
     <div>
