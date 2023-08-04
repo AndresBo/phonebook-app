@@ -1,26 +1,29 @@
 // renders login form
 const LoginForm = ({ handleLogin, username, setUsername, password, setPassword}) => (
-  <form onSubmit={handleLogin}>
-    Login
+  <form onSubmit={handleLogin} className="form-group">
     <div>
-      username
+      Username
         <input
+        className="form-control"
         type="text"
         value={username}
         name="Username"
         onChange={({ target }) => setUsername(target.value)}
+        placeholder="Enter username"
       />
     </div>
     <div>
-      password
+      Password
         <input
+        className="form-control"
         type="password"
         value={password}
         name="Password"
         onChange={({ target }) => setPassword(target.value)}
+        placeholder="Password"
       />
     </div>
-    <button type="submit">login</button>
+    <button type="submit" class="btn btn-outline-secondary">login</button>
   </form>      
 )
 

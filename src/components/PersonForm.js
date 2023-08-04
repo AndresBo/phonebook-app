@@ -3,13 +3,13 @@ const PersonForm = ({ addPerson, newName, setNewName, newNumber, setNewNumber })
     return (
         <form onSubmit={addPerson}>
           <div>
-            name: <input value={newName} onChange={({ target }) => setNewName(target.value)}/>
+            Name: <input value={newName} onChange={({ target }) => setNewName(target.value)}/>
           </div>
           <div>
-            phone: <input value={newNumber} onChange={({ target }) => setNewNumber(target.value)}/>
+            Phone: <input value={newNumber} onChange={({ target }) => setNewNumber(target.value)}/>
           </div>
           <div>
-            <button type="submit">add</button>
+            <button type="submit" class="btn btn-secondary btn-sm">add</button>
           </div>
         </form>
     )

@@ -12,7 +12,9 @@ const ManageUsers = ({ filterUser, users, deleteUser }) => {
           {filteredUsers.map(user => 
             <li key={user.id}>
               {user.name} 
-                <button onClick={() => deleteUser(user.id)}>delete</button>
+                <button onClick={() => deleteUser(user.id)} 
+                  class="btn btn-outline-danger btn-sm">delete
+                </button>
             </li>)
           }
         </ul>
