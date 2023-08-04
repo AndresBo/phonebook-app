@@ -13,7 +13,7 @@ const ManageUsers = ({ filterUser, users, deleteUser }) => {
             <li key={user.id}>
               {user.name} 
                 <button onClick={() => deleteUser(user.id)} 
-                  class="btn btn-outline-danger btn-sm">delete
+                  className="btn btn-outline-danger btn-sm">delete
                 </button>
             </li>)
           }

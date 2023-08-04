@@ -23,7 +23,7 @@ const LoginForm = ({ handleLogin, username, setUsername, password, setPassword})
         placeholder="Password"
       />
     </div>
-    <button type="submit" class="btn btn-outline-secondary">login</button>
+    <button type="submit" className="btn btn-outline-secondary">login</button>
   </form>      
 )
 

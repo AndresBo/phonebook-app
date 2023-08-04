@@ -3,7 +3,7 @@ const LoggedUser = ({ user, handleLogout }) => {
   return (
     <div>
       <div>{user.name} logged in</div>
-      <button onClick={handleLogout} class="btn btn-primary btn-sm">Logout</button>
+      <button onClick={handleLogout} className="btn btn-primary btn-sm">Logout</button>
     </div>
   )
 }

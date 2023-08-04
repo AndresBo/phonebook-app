@@ -13,7 +13,7 @@ const Persons = ({ user, persons, filterName, deletePerson }) => {
               {person.name} {person.number} {user.admin ?
                 <button 
                   onClick={() => deletePerson(person.id)} 
-                  class="btn btn-danger btn-sm">
+                  className="btn btn-danger btn-sm">
                     delete
                 </button>
                 : null
