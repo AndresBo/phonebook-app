@@ -1,24 +1,19 @@
 # Phonebook app
 
-## 1. Website Description
-
-A company with a large customer base requires a web application to keep customer details safe and accessible for its staff. The name of the application is Phonebook. 
+[Live here](https://express-phonebook-backend.onrender.com)
 
 Features:
 - Filter option to quickly find customer details.
 - User registration and login.
 - Administrators can create, read, update and delete customer details.
+- Administrators can create and delete new users.
 - Regular users are limited to searching and reading customer details.
-- Users can tag customers as ‘favorites’.
 
 The application will be developed using *MongoDB* to create the database, *Express.js* and *Nodejs* to handle the application layer, and *React* to implement the presentation layer for the user.
 
-## 2. Data flow Diagram
+## Data flow Diagram
 
 ![data flow](https://github.com/AndresBo/phonebook-app/assets/85352176/e7b6ef5e-662e-436e-a3ea-c876d52f279c)
-
-## 3. Application Architecture Diagram
-
 
 ![App Archite](https://github.com/AndresBo/phonebook-app/assets/85352176/7c173471-451f-4692-a522-fd524f1aae8d)
 
@@ -75,13 +70,3 @@ Login screen<br>
 <strong>Admin user</strong> home page: when the <strong>add user</strong> button is clicked, fields that allow to add or delete users are displayed.<br> 
 
 ![image](https://github.com/AndresBo/phonebook-app/assets/85352176/5b667043-be1a-40bc-9b56-83f532e85445)
-
-## 6. Trello Board Screenshots
-
-<img width="974" alt="Screenshot 1" src="https://github.com/AndresBo/phonebook-app/assets/85352176/acd97e92-d248-417d-8596-895e23edfeac">
-<img width="967" alt="Screenshot 2" src="https://github.com/AndresBo/phonebook-app/assets/85352176/486a99f5-55bd-45a1-863e-0cf6b8095f59">
-<img width="643" alt="Screenshot 3" src="https://github.com/AndresBo/phonebook-app/assets/85352176/6db8b05b-864e-4b59-9a86-0951c2372d24">
-
-
-
-
