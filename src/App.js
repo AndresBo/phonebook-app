@@ -33,7 +33,7 @@ const App = () => {
   const [filterUser, setFilterUser] = useState('')
 
   // these Ref's allows access to toggleVisibility function in Toggable component
-  // by using: 'personFormRef.current.toggleVisibility()'
+  // by using for example: 'personFormRef.current.toggleVisibility()'
   const personFormRef = useRef()
   const newUserFormRef = useRef()
 
@@ -214,7 +214,7 @@ const App = () => {
   // if no user logged in
   if (user === null) {
     return (
-      <div>
+      <div className='container'>
         <h2>Phonebook</h2>
       <Notification 
         message={message} 
@@ -231,7 +231,7 @@ const App = () => {
   }
   // if a user is logged in: note Toggable component wrapping child components to toggle visibility.
   return (
-    <div>
+    <div className='container'>
       <h2>Phonebook</h2>
       <LoggedUser
         user={user}
