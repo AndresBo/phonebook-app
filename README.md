@@ -2,6 +2,16 @@
 
 [Live here](https://express-phonebook-backend.onrender.com)
 
+To try as admin: 
+
+username: ```andres```
+password: ```password```
+
+Try as a regular user:
+
+username: ```mario```
+password: ```password```
+
 Backend [here](https://github.com/AndresBo/express-phonebook-backend/tree/main)
 
 ## Yet to do:
