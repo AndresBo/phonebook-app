@@ -5,7 +5,7 @@
 Backend [here](https://github.com/AndresBo/express-phonebook-backend/tree/main)
 
 ## Features:
-- Filter option to quickly find person number.
+- Filter numbers for easy search.
 - User registration and login.
 - Administrators can create, read, update and delete person.
 - Administrators can create and delete users.
