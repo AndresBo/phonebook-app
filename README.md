@@ -2,12 +2,12 @@
 
 [Live here](https://express-phonebook-backend.onrender.com)
 
-To try as admin: 
+To try as **admin**: 
 
 username: ```andres```
 password: ```password```
 
-Try as a regular user:
+Try as a **regular user**:
 
 username: ```mario```
 password: ```password```
