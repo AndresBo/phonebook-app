@@ -2,12 +2,12 @@
 
 #### Table of Contents
 
-- [Links](##Links)
-- [To do](##Yet to do)
-- [Features](##Features)
-- [Data flow Diagram](##Data flow Diagram)
-- [Libraries](##Libraries)
-- [Deployment](##Deployment)
+- [Links](##links)
+- [To do](##yet-to-do)
+- [Features](##features)
+- [Data flow Diagram](##data-flow-diagram)
+- [Libraries](##libraries)
+- [Deployment](##deployment)
 
 ## Links
 
