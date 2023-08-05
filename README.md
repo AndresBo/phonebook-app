@@ -2,15 +2,15 @@
 
 #### Table of Contents
 
-- [Links](##links)
-- [To do](##yet-to-do)
-- [Features](##features)
-- [Data flow Diagram](##data-flow-diagram)
-- [Libraries](##libraries)
-- [Deployment](##deployment)
+- [Links](#links)
+- [To do](#yet-to-do)
+- [Features](#features)
+- [Data flow Diagram](#data-flow-diagram)
+- [Libraries](#libraries)
+- [Deployment](#deployment)
 
 
-<a name="links"></a>
+<a id="links"></a>
 ## Links
 
 [Live here](https://express-phonebook-backend.onrender.com)
@@ -27,6 +27,7 @@ password: ```password```
 
 Backend [here](https://github.com/AndresBo/express-phonebook-backend/tree/main)
 
+<a id="yet-to-do"></a>
 ## Yet to do:
 - Test frontend
 - End to end testing
@@ -47,7 +48,7 @@ The application will be developed using *MongoDB* to create the database, *Expre
 
 ![App Archite](https://github.com/AndresBo/phonebook-app/assets/85352176/7c173471-451f-4692-a522-fd524f1aae8d)
 
-
+<a id="libraries"></a>
 ## Libraries
 ### On the frontend:
 - ```React```: a user interface library for building UI components. 
@@ -68,7 +69,7 @@ The application will be developed using *MongoDB* to create the database, *Expre
 - ```Supertest```: used during testing to make HTTP requests to backend.
 - ```Eslint```: identifies problems like syntax errors, style violations and bugs in our javascript code.
 
-<a name="deployment"></a>
+<a id="deployment"></a>
 ## Deployment
 - The production build of the frontend is copied to the root of the backend repository.
 - The backend is configured to show the frontend main page: *build/index.html*. This is achived by using express middleware [static](https://expressjs.com/en/starter/static-files.html) as ```app.use(express.static('build'))```.
