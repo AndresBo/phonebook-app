@@ -33,10 +33,9 @@ The application will be developed using *MongoDB* to create the database, *Expre
 - ExpressJS: used to build the API that handlers server side tasks.
 - Jason web token: used to securely transmit user information between the browser, the frontend and the backend.
 - Jest: a javascript testing framework.
-- Morgan:
-- Mongoose:
-- Mongoose unique validator:
-- Nodemon:
-- Supertest
-- Eslint
-- Cross-env  
+- Morgan: an HTTP request logger middleware for nodejs.
+- Mongoose: Object Data Modeling (ODM) libraby for MongoDB. It manages relationships between data and the representation of such data as objects in the code.
+- (Mongoose unique validator)[https://github.com/mongoose-unique-validator/mongoose-unique-validator]: Mongoose lacks unique validator - Mongoose-unique-validator adds pre-save validation for unique fields in a mongoose schema.
+- Nodemon: automatically restart application the app when file changes.
+- Supertest: used during testing to make HTTP requests to backend.
+- Eslint: identifies problems like syntax errors, style violations and bugs in our javascript code.
