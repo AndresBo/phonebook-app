@@ -8,7 +8,7 @@ Backend [here](https://github.com/AndresBo/express-phonebook-backend/tree/main)
 - Filter option to quickly find person number.
 - User registration and login.
 - Administrators can create, read, update and delete person.
-- Administrators can create and delete new users.
+- Administrators can create and delete users.
 - Regular users are limited to searching and reading customer details.
 
 The application will be developed using *MongoDB* to create the database, *Express.js* and *Nodejs* to handle the application layer, and *React* to implement the presentation layer for the user.
