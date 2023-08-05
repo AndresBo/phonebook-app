@@ -4,6 +4,11 @@
 
 Backend [here](https://github.com/AndresBo/express-phonebook-backend/tree/main)
 
+# Yet to do:
+- Test frontend
+- End to end testing
+- Frontend styling 
+
 ## Features:
 - Filter numbers for easy search.
 - User registration and login.
