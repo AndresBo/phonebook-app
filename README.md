@@ -2,15 +2,15 @@
 
 #### Table of Contents
 
-- [Links](##Links)
+- [Links](##links)
 - [To do](##yet-to-do)
 - [Features](##features)
 - [Data flow Diagram](##data-flow-diagram)
 - [Libraries](##libraries)
-- [Deployment](##Deployment)
+- [Deployment](##deployment)
 
 
-<a name="Links"></a>
+<a name="links"></a>
 ## Links
 
 [Live here](https://express-phonebook-backend.onrender.com)
@@ -68,7 +68,7 @@ The application will be developed using *MongoDB* to create the database, *Expre
 - ```Supertest```: used during testing to make HTTP requests to backend.
 - ```Eslint```: identifies problems like syntax errors, style violations and bugs in our javascript code.
 
-<a name="Deployment"></a>
+<a name="deployment"></a>
 ## Deployment
 - The production build of the frontend is copied to the root of the backend repository.
 - The backend is configured to show the frontend main page: *build/index.html*. This is achived by using express middleware [static](https://expressjs.com/en/starter/static-files.html) as ```app.use(express.static('build'))```.
