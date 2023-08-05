@@ -47,7 +47,7 @@ The application will be developed using *MongoDB* to create the database, *Expre
   
 ## Deployment
 - The production build of the frontend is copied to the root of the backend repository.
-- The backend is configured to show the frontend main page: *build/index.html*. This is achived by using express middleware [static](https://expressjs.com/en/starter/static-files.html) as *app.use(express.static('build'))*.
+- The backend is configured to show the frontend main page: *build/index.html*. This is achived by using express middleware [static](https://expressjs.com/en/starter/static-files.html) as ```app.use(express.static('build'))```.
 
 
 
