@@ -27,23 +27,23 @@ The application will be developed using *MongoDB* to create the database, *Expre
 
 ## Libraries
 ### On the frontend:
-- React: a user interface library for building UI components. 
-- [Axios](https://axios-http.com/docs/intro): a promise based HTTP client for node.js and the browser. Used to make requests from the frontend to the backend.
-- Bootstrap: a frontend library with templates to add styling/functionality to web pages.
-- Jest: a javascript testing framework.
+- ```React```: a user interface library for building UI components. 
+- ```Axios```: a promise based HTTP client for node.js and the browser. Used to make requests from the frontend to the backend.
+- ```Bootstrap```: a frontend library with templates to add styling/functionality to web pages.
+- ```Jest```: a javascript testing framework.
 ### On the backend:
-- bcrypt: a password-hashing function used to encrypt users passwords.
-- CORS: 'cross-origin-resource-sharing' allows the backend to accept requests from a server in a different origin -like the front end.
-- dotenv: loads enviromental variables from .env and makes them accessible on 'process.env'.
-- ExpressJS: used to build the API that handlers server side tasks.
-- Jason web token: used to securely transmit user information between the browser, the frontend and the backend.
-- Jest: a javascript testing framework.
-- Morgan: an HTTP request logger middleware for nodejs.
-- Mongoose: Object Data Modeling (ODM) libraby for MongoDB. It manages relationships between data and the representation of such data as objects in the code.
-- (Mongoose unique validator)[https://github.com/mongoose-unique-validator/mongoose-unique-validator]: Mongoose lacks unique validator - Mongoose-unique-validator adds pre-save validation for unique fields in a mongoose schema.
-- Nodemon: automatically restart application the app when file changes.
-- Supertest: used during testing to make HTTP requests to backend.
-- Eslint: identifies problems like syntax errors, style violations and bugs in our javascript code.
+- ```bcrypt```: a password-hashing function used to encrypt users passwords.
+- ```CORS```: 'cross-origin-resource-sharing' allows the backend to accept requests from a server in a different origin -like the front end.
+- ```dotenv```: loads enviromental variables from .env and makes them accessible on 'process.env'.
+- ```ExpressJS```: used to build the API that handlers server side tasks.
+- ```Jason web token```: used to securely transmit user information between the browser, the frontend and the backend.
+- ```Jest```: a javascript testing framework.
+- ```Morgan```: an HTTP request logger middleware for nodejs.
+- ```Mongoose```: Object Data Modeling (ODM) libraby for MongoDB. It manages relationships between data and the representation of such data as objects in the code.
+- ```Mongoose unique validator```: Mongoose lacks unique validator - Mongoose-unique-validator adds pre-save validation for unique fields in a mongoose schema.
+- ```Nodemon```: automatically restart application the app when file changes.
+- ```Supertest```: used during testing to make HTTP requests to backend.
+- ```Eslint```: identifies problems like syntax errors, style violations and bugs in our javascript code.
   
 ## Deployement
 - The production build of the frontend is copied to the root of the backend repository.
