@@ -4,7 +4,7 @@
 
 Backend [here](https://github.com/AndresBo/express-phonebook-backend/tree/main)
 
-# Yet to do:
+## Yet to do:
 - Test frontend
 - End to end testing
 - Frontend styling 
