@@ -214,11 +214,8 @@ const App = () => {
   // if no user logged in
   if (user === null) {
     return (
-      <div>
+      <div className='loginForm'>
         <h2>Phonebook</h2>
-      <Notification 
-        message={message} 
-      />
       <LoginForm
         handleLogin={handleLogin}
         username={username}
@@ -226,6 +223,10 @@ const App = () => {
         password={password}
         setPassword={setPassword}
       />
+      <Notification 
+        message={message} 
+      />
+      <p>try it with <b>username</b>: admin, <b>password</b>: password</p>
       </div>
     )
   }
@@ -245,7 +246,7 @@ const App = () => {
         setFilterName={setFilterName}
       />
       {user.admin ? (
-        <Togglable buttonLabel='add person' ref={personFormRef}>
+        <Togglable buttonLabel='add/edit person' ref={personFormRef}>
           <PersonForm
             addPerson={addPerson}
             newName={newName}

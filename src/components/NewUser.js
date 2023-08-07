@@ -20,7 +20,7 @@ const NewUser = ({ createUser }) => {
   }
 
   return (
-    <form onSubmit={addUser}>
+    <form onSubmit={addUser} className="newUser">
       Create User
       <div>
         username
