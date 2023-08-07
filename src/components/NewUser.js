@@ -54,7 +54,7 @@ const NewUser = ({ createUser }) => {
           onChange={event => setNewPassword(event.target.value)}
         />
       </div>
-      <button type="submit" className="btn btn-secondary btn-sm">save</button>
+      <button type="submit">save</button>
     </form>
   )
 }

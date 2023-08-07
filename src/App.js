@@ -214,7 +214,7 @@ const App = () => {
   // if no user logged in
   if (user === null) {
     return (
-      <div className='container'>
+      <div>
         <h2>Phonebook</h2>
       <Notification 
         message={message} 
@@ -231,7 +231,7 @@ const App = () => {
   }
   // if a user is logged in: note Toggable component wrapping child components to toggle visibility.
   return (
-    <div className='container'>
+    <div>
       <h2>Phonebook</h2>
       <LoggedUser
         user={user}

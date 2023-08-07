@@ -1,10 +1,9 @@
 // renders login form
 const LoginForm = ({ handleLogin, username, setUsername, password, setPassword}) => (
-  <form onSubmit={handleLogin} className="form-group">
+  <form onSubmit={handleLogin}>
     <div>
       Username
         <input
-        className="form-control"
         type="text"
         value={username}
         name="Username"
@@ -15,7 +14,6 @@ const LoginForm = ({ handleLogin, username, setUsername, password, setPassword})
     <div>
       Password
         <input
-        className="form-control"
         type="password"
         value={password}
         name="Password"
@@ -23,7 +21,7 @@ const LoginForm = ({ handleLogin, username, setUsername, password, setPassword})
         placeholder="Password"
       />
     </div>
-    <button type="submit" className="btn btn-outline-secondary">login</button>
+    <button type="submit">login</button>
   </form>      
 )
 

@@ -11,10 +11,8 @@ const Persons = ({ user, persons, filterName, deletePerson }) => {
           {filteredPersons.map(person => 
             <li key={person.id}>
               {person.name} {person.number} {user.admin ?
-                <button 
-                  onClick={() => deletePerson(person.id)} 
-                  className="btn btn-danger btn-sm">
-                    delete
+                <button onClick={() => deletePerson(person.id)}>
+                  delete
                 </button>
                 : null
               }
